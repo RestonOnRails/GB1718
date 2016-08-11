@@ -10,6 +10,18 @@
   <%= link_to 'Edit', edit_event_path(@randomEvent) %>
 </div>
 
+<div>
+  <% if @todaysEvents %>
+    <h2>Today's Event</h2>
+    <% @todaysEvents.each do |event| %>
+      <%= event.date %>
+      <%= event.description %>
+      <%= event.extra %>
+      <%= link_to 'Edit', edit_event_path(event) %>
+    <% end %>
+  <% end %>
+</div>
+
 <br>
 
 <%= link_to 'New Event', new_event_path %>
